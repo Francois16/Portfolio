@@ -23,6 +23,8 @@
     "jsdom": "^20.0.0",
     "prettier": "^2.7.1",
     "vite": "^3.0.9",
-    "vitest": "^0.23.0"
+    "vite-plugin-windicss": "^1.8.8",
+    "vitest": "^0.23.0",
+    "windicss": "^3.5.6"
   }
 }
