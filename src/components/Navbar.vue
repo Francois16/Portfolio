@@ -2,7 +2,9 @@
 
 <template>
   <header>
-    <nav class="container absolute bg-transparent">
+    <nav
+      class="container absolute bg-transparent top-0 left-1/2 transform -translate-x-1/2"
+    >
       <div class="flex flex-row items-center justify-between">
         <button>about</button>
         <button>projects</button>
