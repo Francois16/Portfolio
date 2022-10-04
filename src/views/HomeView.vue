@@ -27,7 +27,7 @@ function clearForm() {
     <!-- Hero -->
     <section class="min-h-screen relative">
       <div class="container bottom-32 absolute">
-        <h1 class="font-semibold text-4xl">
+        <h1 class="font-semibold text-5xl leading-tight">
           <span class="block"
             >Hi, I'm <span class="text-orange-500">Francois</span>
           </span>
@@ -46,7 +46,11 @@ function clearForm() {
         <h1 class="title">My Skills</h1>
 
         <div class="flex flex-col">
-          <img class="w-full" :src="manImg" alt="seated man on a laptop" />
+          <img
+            class="max-w-sm mx-auto"
+            :src="manImg"
+            alt="seated man on a laptop"
+          />
 
           <div
             class="flex flex-wrap mt-10 mb-5 gap-1 items-center justify-center"
@@ -80,27 +84,27 @@ function clearForm() {
                 Sorting Visualizer 👀
               </h1>
               <img
-                class="border bg-slate-700 mb-5 w-full p-1"
+                class="border bg-orange-300 mb-5 w-full p-1"
                 :src="sortingImg"
                 alt="project image"
               />
               <div class="flex flex-wrap gap-2">
                 <button
-                  class="border-current rounded border-2 text-center py-1 basis-full"
+                  class="border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-blue-800 border-blue-800 text-white)"
                 >
                   Live Site (not linked yet)
                 </button>
                 <a
                   target="_blank"
                   href="https://github.com/Francois16/sorting-visualizer"
-                  class="border-current rounded border-2 text-center py-1 basis-full"
+                  class="border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-slate-800 border-slate-800 text-white)"
                 >
                   Github
                 </a>
                 <a
                   target="_blank"
                   href="https://www.youtube.com/watch?v=iU6eZS_MQC4"
-                  class="border-current rounded border-2 text-center py-1 basis-full"
+                  class="border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-[#c4302b] border-[#c4402b] text-white)"
                 >
                   Video <span>(2min 34s)</span>
                 </a>
@@ -129,7 +133,7 @@ function clearForm() {
 
         <form
           @submit.prevent="sendMessage"
-          class="flex flex-col bg-white p-4 gap-3 shadow-lg rounded-lg"
+          class="flex flex-col bg-white p-4 gap-3 shadow-lg rounded-2xl"
         >
           <div class="flex flex-col gap-1">
             <label for="name">Name</label>
@@ -194,7 +198,7 @@ label {
 }
 
 .title::after {
-  @apply bg-orange-500;
+  @apply bg-orange-500 duration-200;
   content: "";
   position: absolute;
   width: 100%;
@@ -204,4 +208,21 @@ label {
   z-index: -10;
   opacity: 60%;
 }
+
+.title:hover::after {
+  animation: left-to-right 0.25s linear;
+}
+
+@keyframes left-to-right {
+  0% {
+    width: 100%;
+  }
+  50% {
+    width: 40%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+/* Keyframe */
 </style>
