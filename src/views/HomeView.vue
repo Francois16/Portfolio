@@ -1,7 +1,7 @@
 <script setup>
+import { ref } from "vue";
 import manImg from "../assets/images/about.png";
 import sortingImg from "../assets/images/projects/sorting.png";
-import { ref } from "vue";
 
 const formData = ref({
   name: "",
@@ -10,7 +10,7 @@ const formData = ref({
 });
 
 function sendMessage() {
-  console.log("sendMessage function not implemented yet");
+  console.log("not implemented yet");
   clearForm();
 }
 
@@ -42,7 +42,7 @@ function clearForm() {
 
     <div class="container">
       <!-- Skills -->
-      <section>
+      <section id="about">
         <h1 class="title">My Skills</h1>
 
         <div class="flex flex-col">
@@ -66,16 +66,16 @@ function clearForm() {
           <h3 class="font-bold my-5 text-2xl">I love building stuff 🛠</h3>
 
           <p class="text-xl leading-relaxed mb-10">
-            I started exploring the world of programming in early/mid 2022 and
-            instantly fell in love with it. I have been tinkering with all sorts
-            of technologies but found myself gravitating towards Python and
+            When I started exploring the world of programming, I instantly fell
+            in love with it. I have been tinkering with all sorts of
+            technologies but found myself gravitating towards Python and
             Javascript.
           </p>
         </div>
       </section>
 
       <!-- Featured projects (maximum of 4)-->
-      <section class="my-10">
+      <section id="projects" class="my-10">
         <h1 class="title basis-auto">Projects</h1>
         <div class="flex flex-col gap-4">
           <div class="bg-white rounded-2xl shadow-lg p-3">
@@ -84,29 +84,31 @@ function clearForm() {
                 Sorting Visualizer 👀
               </h1>
               <img
-                class="border bg-orange-300 mb-5 w-full p-1"
+                class="p-1 bg-slate-800 rounded mb-5 w-full p-1"
                 :src="sortingImg"
                 alt="project image"
               />
               <div class="flex flex-wrap gap-2">
-                <button
-                  class="border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-blue-800 border-blue-800 text-white)"
+                <a
+                  target="_blank"
+                  href="https://steady-piroshki-2b8a8c.netlify.app/"
+                  class="capitalize border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-blue-800 border-blue-800 text-white)"
                 >
-                  Live Site (not linked yet)
-                </button>
+                  Play with it
+                </a>
                 <a
                   target="_blank"
                   href="https://github.com/Francois16/sorting-visualizer"
-                  class="border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-slate-800 border-slate-800 text-white)"
+                  class="capitalize border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-slate-800 border-slate-800 text-white)"
                 >
-                  Github
+                  Check out Github
                 </a>
                 <a
                   target="_blank"
                   href="https://www.youtube.com/watch?v=iU6eZS_MQC4"
-                  class="border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-[#c4302b] border-[#c4402b] text-white)"
+                  class="capitatilize border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-[#c4302b] border-[#c4402b] text-white)"
                 >
-                  Video <span>(2min 34s)</span>
+                  Watch Demo Video <span>(2min 34s)</span>
                 </a>
               </div>
             </div>
@@ -128,7 +130,7 @@ function clearForm() {
       </section>
 
       <!-- Contact info/form -->
-      <section class="mb-10">
+      <section id="contact" class="mb-10">
         <h1 class="title mb-10">Contact Me</h1>
 
         <form
@@ -188,7 +190,7 @@ label {
 }
 
 .technology {
-  @apply font-semibold text-white py-1 px-3;
+  @apply font-semibold text-white py-1 px-5 rounded-full;
   /* bg-slate-800 giving error on linting */
   background-color: rgba(30, 41, 59, 1);
 }
