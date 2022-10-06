@@ -8,8 +8,7 @@ function navigate(section) {
   const sectionRect = document.querySelector(section).getBoundingClientRect();
   const navRect = document.querySelector("#navbar").getBoundingClientRect();
 
-  // Calculate offset of the scroll + another 20px up.
-  let offset = sectionRect.top - bodyRect.top - navRect.height - 20;
+  let offset = sectionRect.top - bodyRect.top - navRect.height;
 
   window.scrollTo(0, offset);
 }
@@ -18,9 +17,8 @@ function closeMenu() {
   isOpen.value = false;
 }
 </script>
-
 <template>
-  <header id="navbar" class="fixed bg-white border-b w-full z-10">
+  <header id="navbar" class="fixed bg-white border-b w-full z-50">
     <nav
       class="container flex h-16 md:(h-20) duration-200 z-10 items-center justify-end"
     >
@@ -59,7 +57,7 @@ function closeMenu() {
 
       <!-- Mobile Menu -->
       <div
-        class="bg-white border-b h-screen w-full top-0 z-10 duration-200 fixed"
+        class="bg-white border-b h-screen w-full top-0 z-50 duration-200 fixed"
         :class="isOpen ? 'left-0' : '-left-full'"
       >
         <div

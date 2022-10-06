@@ -9,7 +9,14 @@
 </head>
 
 <body class="text-slate-700 bg-gray-50">
-  <div id="app"></div>
+  <div id="app">
+  </div>
+  <form name="contact" method="POST" netlify hidden>
+    <input name="name" type="text" />
+    <input name="surname" type="text" />
+    <textarea name="message" type="text"></textarea>
+    <button type="submit">Submit</button>
+  </form>
   <script type="module" src="/src/main.js"></script>
 </body>
 
