@@ -57,13 +57,15 @@ function closeNav() {
       <div @click="toggleMenu" class="burger">
         <div
           class="bar"
-          :class="navIsOpen ? 'w-5 transform rotate-45 translate-y-0.5' : 'w-5'"
+          :class="
+            navIsOpen ? 'w-5 transform rotate-45 translate-y-[2.5px]' : 'w-5'
+          "
         ></div>
         <div class="w-3 bar" :class="navIsOpen ? 'hidden' : 'block'"></div>
         <div
           class="bar"
           :class="
-            navIsOpen ? 'w-5 transform -rotate-45 -translate-y-0.5 ' : 'w-4'
+            navIsOpen ? 'w-5 transform -rotate-45 -translate-y-[2.5px]' : 'w-4'
           "
         ></div>
       </div>
