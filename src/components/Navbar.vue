@@ -1,109 +1,86 @@
 <script setup>
 import { ref } from "vue";
 
-const isOpen = ref(false);
+import logo from "../assets/images/logo.png";
 
-function navigate(section) {
-  const bodyRect = document.body.getBoundingClientRect();
-  const sectionRect = document.querySelector(section).getBoundingClientRect();
-  const navRect = document.querySelector("#navbar").getBoundingClientRect();
+const navIsOpen = ref(false);
 
-  let offset = sectionRect.top - bodyRect.top - navRect.height;
-
-  window.scrollTo(0, offset);
+function toggleMenu() {
+  navIsOpen.value = !navIsOpen.value;
 }
 
-function closeMenu() {
-  isOpen.value = false;
+function closeNav() {
+  navIsOpen.value = false;
 }
 </script>
 <template>
-  <header id="navbar" class="fixed bg-white border-b w-full z-50">
-    <nav
-      class="container flex h-16 md:(h-20) duration-200 z-10 items-center justify-end"
-    >
-      <div
-        class="flex flex-row gap-5 hidden items-center justify-end md:(flex)"
-      >
-        <button
-          @click="navigate('#about')"
-          class="rounded font-bold py-2 px-3 duration-200 capitalize hover:(bg-orange-500 text-white )"
-        >
-          About
-        </button>
-        <button
-          @click="navigate('#projects')"
-          class="rounded font-bold py-2 px-3 duration-200 capitalize hover:(bg-orange-500 text-white )"
-        >
-          projects
-        </button>
-        <button
-          @click="navigate('#contact')"
-          class="rounded font-bold py-2 px-3 duration-200 capitalize hover:(bg-orange-500 text-white )"
-        >
-          contact
-        </button>
-      </div>
+  <header>
+    <nav class="container flex justify-between items-center h-24 py-5 relative">
+      <router-link class="h-full" to="/">
+        <img class="h-full" :src="logo" alt="Logo" />
+      </router-link>
 
-      <!-- Burger Icon -->
-      <div
-        @click="isOpen = true"
-        class="cursor-pointer flex flex-col py-2 px-1 gap-[3px] items-end md:(hidden)"
-      >
-        <div class="bg-slate-800 h-0.5 w-5"></div>
-        <div class="bg-slate-800 h-0.5 w-3"></div>
-        <div class="bg-slate-800 h-0.5 w-5"></div>
+      <!-- Desktop Menu -->
+      <div class="hidden sm:(flex) gap-1 items-center font-semibold text-base">
+        <a
+          target="_blank"
+          href="#"
+          class="py-2 px-4 duration-200 hover:(text-purple)"
+          >Resume</a
+        >
+        <router-link
+          to="/contact"
+          class="text-purple border-2 border-purple py-2 px-4 rounded-full hover:(text-white bg-purple) duration-200"
+          >Say Hello</router-link
+        >
       </div>
 
       <!-- Mobile Menu -->
       <div
-        class="bg-white border-b h-screen w-full top-0 z-50 duration-200 fixed"
-        :class="isOpen ? 'left-0' : '-left-full'"
+        class="absolute top-full duration-500 bg-white z-10 w-full flex flex-col items-center pb-5"
+        :class="navIsOpen ? 'left-0' : '-left-full'"
       >
-        <div
-          @click="isOpen = false"
-          class="cursor-pointer py-4 top-8 right-5 text-4xl absolute"
+        <a
+          target="_blank"
+          href="#"
+          class="py-2 px-4 duration-200 hover:(text-purple)"
+          >Resume</a
         >
-          <div
-            class="rounded-full bg-slate-800 h-1 transform w-8 rotate-45 translate-y-0.5"
-          ></div>
-          <div
-            class="rounded-full bg-slate-800 h-1 transform w-8 -rotate-45 -translate-y-0.5"
-          ></div>
-        </div>
+        <router-link
+          to="/contact"
+          class="text-purple border-2 border-purple py-2 px-4 rounded-full hover:(text-white bg-purple) duration-200"
+          >Say Hello</router-link
+        >
+      </div>
 
-        <div class="flex flex-col h-full gap-1 justify-center items-cnter">
-          <button
-            @click="
-              navigate('#about');
-              closeMenu();
-            "
-            class="font-bold py-4 duration-200 hover:(bg-orange-500 text-white)"
-          >
-            About
-          </button>
-          <button
-            @click="
-              navigate('#projects');
-              closeMenu();
-            "
-            class="font-bold py-4 duration-200 hover:(bg-orange-500 text-white)"
-          >
-            Projects
-          </button>
-          <button
-            @click="
-              navigate('#contact');
-              closeMenu();
-            "
-            class="font-bold py-4 duration-200 hover:(bg-orange-500 text-white)"
-          >
-            Contact
-          </button>
-        </div>
+      <!-- Burger -->
+      <div @click="toggleMenu" class="burger">
+        <div
+          class="bar"
+          :class="navIsOpen ? 'w-5 transform rotate-45 translate-y-0.5' : 'w-5'"
+        ></div>
+        <div class="w-3 bar" :class="navIsOpen ? 'hidden' : 'block'"></div>
+        <div
+          class="bar"
+          :class="
+            navIsOpen ? 'w-5 transform -rotate-45 -translate-y-0.5 ' : 'w-4'
+          "
+        ></div>
       </div>
     </nav>
   </header>
 </template>
 
-<style></style>
+<style>
+.burger {
+  @apply flex flex-col items-end p-2 gap-1 cursor-pointer sm:(hidden);
+}
+
+.burger:hover .bar {
+  @apply bg-purple rounded duration-200;
+}
+
+.bar {
+  @apply h-[1px] block bg-navy duration-200;
+}
+</style>
