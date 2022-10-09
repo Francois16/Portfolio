@@ -5,6 +5,10 @@ import logo from "../assets/images/logo.png";
 
 const navIsOpen = ref(false);
 
+window.addEventListener("resize", () => {
+  closeNav();
+});
+
 function toggleMenu() {
   navIsOpen.value = !navIsOpen.value;
 }
@@ -28,10 +32,10 @@ function closeNav() {
           class="py-2 px-4 duration-200 hover:(text-purple)"
           >Resume</a
         >
-        <router-link
-          to="/contact"
+        <a
+          href="#work"
           class="text-purple border-2 border-purple py-2 px-4 rounded-full hover:(text-white bg-purple) duration-200"
-          >Say Hello</router-link
+          >My Work</a
         >
       </div>
 
@@ -46,10 +50,10 @@ function closeNav() {
           class="py-2 px-4 duration-200 hover:(text-purple)"
           >Resume</a
         >
-        <router-link
-          to="/contact"
+        <a
+          href="#work"
           class="text-purple border-2 border-purple py-2 px-4 rounded-full hover:(text-white bg-purple) duration-200"
-          >Say Hello</router-link
+          >My Work</a
         >
       </div>
 

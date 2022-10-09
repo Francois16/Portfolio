@@ -1,12 +1,26 @@
 <script setup>
 import { ref } from "vue";
-import router from "../router";
-import manImg from "../assets/images/about.png";
-import sortingImg from "../assets/images/projects/sorting.png";
+import { useRouter } from "vue-router";
+
+import Navbar from "../components/Navbar.vue";
+
+// Images
+import avatar from "../assets/images/fp-avatar.svg";
+import devices from "../assets/images/hero-devices.svg";
+import sortingImg from "../assets/images/projects/datastructures.png";
+
+// Icons
+import TerminalIcon from "vue-material-design-icons/Console.vue";
+import DatabaseIcon from "vue-material-design-icons/Database.vue";
+import GithubIcon from "vue-material-design-icons/Github.vue";
+import LinkedinIcon from "vue-material-design-icons/Linkedin.vue";
+import ResumeIcon from "vue-material-design-icons/FileAccount.vue";
+
+const router = useRouter();
 
 const formData = ref({
   name: "",
-  surname: "",
+  email: "",
   message: "",
 });
 
@@ -35,172 +49,194 @@ function sendMessage() {
 // Clear the form on successful message sent
 function clearForm() {
   formData.value.name = "";
-  formData.value.surname = "";
+  formData.value.email = "";
   formData.value.message = "";
 }
 </script>
 
 <template>
+  <Navbar />
   <main>
     <!-- Hero -->
-    <section class="min-h-screen bg-sky-200 relative">
-      <div class="custom-shape-divider-bottom-1665035750">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
+    <section class="container flex flex-col items-center pt-32">
+      <h2
+        class="text-4xl text-center font-semibold font-display mb-10 lg:(text-6xl)"
+      >
+        Full Stack Developer
+      </h2>
+
+      <p class="text-center max-w-lg text-xl leading-relaxed">
+        <!-- I Design and develop technology that improves the lives of its users,
+        while providing an exceptionally high level of service to clients. -->
+        I love exploring and creating 🚀 I'm a lifelong learner 🎓 and might
+        have a thing for freshly roasted coffee ☕
+      </p>
+
+      <img :src="avatar" alt="avatar" class="my-16 h-44 w-44" />
+
+      <img :src="devices" alt="hero-devices" class="mt-10 w-full max-w-3xl" />
+    </section>
+
+    <!-- Skills -->
+    <section class="bg-purple text-white text-center py-16">
+      <div class="container max-w-5xl">
+        <h3 class="text-2xl font-display pb-7 font-semibold lg:(text-3xl)">
+          Hi, I'm Francois. Nice to meet you.
+        </h3>
+        <p class="leading-relaxed text-lg mb-16 max-w-lg m-auto">
+          When I started exploring the world of programming, I instantly fell in
+          love with it. I have been tinkering with all sorts of technologies but
+          found myself gravitating towards Python and Javascript.
+        </p>
+
+        <p
+          class="my-8 flex flex-wrap gap-5 md:(flex-row) items-center justify-center"
         >
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            class="shape-fill"
-          ></path>
-        </svg>
+          <a
+            class="bg-green rounded shadow py-2 px-5 text-navy duration-200 font-semibold hover:(bg-green/90) flex items-center justify-center gap-1"
+            target="_blank"
+            href="https://github.com/Francois16"
+          >
+            <github-icon />
+            Github
+          </a>
+          <a
+            class="bg-green rounded shadow py-2 px-5 text-navy duration-200 font-semibold hover:(bg-green/90) flex items-center justify-center gap-1"
+            target="_blank"
+            href="https://www.linkedin.com/in/francoispaulsen/"
+          >
+            <linkedin-icon />
+            Linkedin</a
+          >
+          <a
+            class="bg-green rounded shadow py-2 px-5 text-navy duration-200 font-semibold hover:(bg-green/90) flex items-center justify-center gap-1"
+            target="_blank"
+            href="#"
+          >
+            <resume-icon />
+            Resume</a
+          >
+        </p>
       </div>
-      <div class="md:(container)">
-        <div class="container bottom-32 md:(bottom-48) absolute">
-          <h1 class="font-semibold text-5xl leading-tight">
-            <span class="block"
-              >Hi, I'm <span class="text-orange-500">Francois.</span>
-            </span>
-            I'm a Fullstack Developer.
-          </h1>
-          <p class="max-w-xs mt-5 text-xl leading-relaxed">
-            I love exploring and creating 🚀 I'm a lifelong learner 🎓 and might
-            have a thing for freshly roasted coffee ☕
+    </section>
+
+    <section class="skills">
+      <div class="container grid grid-col-1 md:(grid-cols-2) gap-6 max-w-5xl">
+        <div
+          class="flex flex-col items-center bg-white border rounded-2xl shadow p-12"
+        >
+          <div
+            class="bg-green p-4 rounded-full flex items-center justify-center"
+          >
+            <terminal-icon />
+          </div>
+
+          <h1 class="text-2xl font-display my-6 font-semibold">Frontend</h1>
+
+          <p class="text-center leading-relaxed">
+            Build client-side applications with modern features like SPA and
+            maintain semantic coding style among other best practices for SEO
+            optimisation. I use modern tech such as Vue.js and TailwindCSS,
+          </p>
+
+          <h4 class="mt-6 mb-2 text-purple text-lg font-medium">
+            Languages I speak:
+          </h4>
+
+          <p class="text-center leading-relaxed">
+            HTML5, CSS3, Javascript, VueJS, TailwindCSS
+          </p>
+        </div>
+        <div
+          class="flex flex-col items-center bg-white border rounded-2xl shadow p-12"
+        >
+          <div
+            class="bg-green p-4 rounded-full flex items-center justify-center"
+          >
+            <database-icon />
+          </div>
+
+          <h1 class="text-2xl font-display my-6 font-semibold">Backend</h1>
+
+          <p class="text-center leading-relaxed">
+            Build scalable and maintainable server applications using modern
+            technology such as Django and the Django REST framework.
+          </p>
+
+          <h4 class="mt-6 mb-2 text-purple text-lg font-medium">
+            Languages I speak:
+          </h4>
+
+          <p class="text-center leading-relaxed">
+            Python, Django, Django REST framework
           </p>
         </div>
       </div>
     </section>
 
-    <div class="container">
-      <!-- Skills -->
-      <section class="py-10 md:(py-20)" id="about">
-        <h1 class="title md:(hidden)">My Skills</h1>
-        <div
-          class="grid grid-cols-1 gap-3 md:(grid-cols-2 items-center justify-end)"
-        >
-          <img class="mx-auto" :src="manImg" alt="seated man on a laptop" />
+    <section id="work">
+      <h1
+        class="text-center font-display text-4xl font-semibold mt-36 mb-6 capitalize"
+      >
+        My recent work
+      </h1>
 
-          <div>
-            <h1 class="title hidden md:(inline-block)">My Skills</h1>
-            <div
-              class="flex flex-wrap mt-10 mb-5 gap-1 items-center justify-center sm:(justify-start)"
-            >
-              <span class="technology">Python</span>
-              <span class="technology">Django</span>
-              <span class="technology">Javascript</span>
-              <span class="technology">VueJS</span>
-              <span class="technology">HTML</span>
-              <span class="technology">CSS</span>
-            </div>
+      <p class="text-center text-xl leading-relaxed">
+        Here are a few past projects I've worked on.
+      </p>
 
-            <h3 class="font-bold my-8 text-2xl">I love building stuff 🛠</h3>
+      <div
+        class="container my-20 gap-6 grid grid-cols-1 md:(grid-cols-2) max-w-5xl"
+      >
+        <div class="overflow-hidden bg-white shadow rounded-2xl relative group">
+          <img class="" :src="sortingImg" />
 
-            <p class="mt-4 mb-8 flex flex-wrap gap-5 md:(flex-row)">
-              <a
-                class="bg-slate-800 rounded shadow py-2 px-5 text-white duration-200 font-semibold hover:(bg-slate-800/90)"
-                target="_blank"
-                href="https://github.com/Francois16"
-                >Github</a
-              >
-              <a
-                class="bg-slate-800 rounded shadow py-2 px-5 text-white duration-200 font-semibold hover:(bg-slate-800/90)"
-                target="_blank"
-                href="https://www.linkedin.com/in/francoispaulsen/"
-                >LinkedIn</a
-              >
-              <a
-                class="bg-slate-800 rounded shadow py-2 px-5 text-white duration-200 font-semibold hover:(bg-slate-800/90)"
-                target="_blank"
-                href="#"
-                >Resume</a
-              >
+          <div
+            class="p-12 pb-4 absolute h-full w-full bg-green/80 -bottom-full left-0 group-hover:(bottom-0) duration-500 bg-gradient-to-b from-transparent to-navy flex flex-col items-center justify-end"
+          >
+            <h2 class="font-display text-white text-4xl mb-3">Sorter</h2>
+            <p class="mb-4 text-white text-center">
+              Visualization of popular sorting algorithms.
+              <br />
             </p>
-
-            <p class="text-xl leading-relaxed mb-10 max-w-md">
-              When I started exploring the world of programming, I instantly
-              fell in love with it. I have been tinkering with all sorts of
-              technologies but found myself gravitating towards Python and
-              Javascript.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Featured projects (maximum of 4)-->
-      <section id="projects" class="my-10">
-        <h1 class="title basis-auto">Projects</h1>
-        <div class="grid grid-cols-1 sm:(grid-cols-2) xl:(grid-cols-4) gap-4">
-          <div class="bg-white rounded-2xl shadow-lg p-3">
-            <div>
-              <h1 class="font-bold my-5 text-3xl">Sorting Visualizer 👀</h1>
-              <img
-                class="p-1 bg-slate-800 rounded mb-5 w-full p-1"
-                :src="sortingImg"
-                alt="project image"
-              />
-              <div class="flex flex-wrap gap-2">
-                <a
-                  target="_blank"
-                  href="https://steady-piroshki-2b8a8c.netlify.app/"
-                  class="capitalize border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-blue-800 border-blue-800 text-white)"
-                >
-                  Try it yourself
-                </a>
-                <a
-                  target="_blank"
-                  href="https://github.com/Francois16/sorting-visualizer"
-                  class="capitalize border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-slate-800 border-slate-800 text-white)"
-                >
-                  Check out Github
-                </a>
-                <a
-                  target="_blank"
-                  href="https://www.youtube.com/watch?v=iU6eZS_MQC4"
-                  class="capitatilize border-current rounded border-2 text-center py-1 basis-full duration-200 hover:(bg-[#c4302b] border-[#c4402b] text-white)"
-                >
-                  Watch Demo Video <span>(2min 34s)</span>
-                </a>
-              </div>
-            </div>
-            <div>
-              <div
-                class="flex flex-wrap my-6 gap-1 justify-center items-center"
+            <p class="text-white mb-6">HTML5 - CSS3 - Javascript</p>
+            <div class="flex flex-row gap-6 items-center justify-center">
+              <a
+                target="_blank"
+                href="https://github.com/Francois16/sorting-visualizer"
+                class="py-2 px-4 bg-white rounded font-semibold"
               >
-                <span class="technology">Javascript</span>
-                <span class="technology">HTML</span>
-                <span class="technology">CSS</span>
-              </div>
-              <div class="text-xl text-center leading-relaxed">
-                <p>Created a visualizer for popular sorting algorithms.</p>
-              </div>
+                Github
+              </a>
+              <a
+                target="_blank"
+                href="https://steady-piroshki-2b8a8c.netlify.app/"
+                class="py-2 px-4 bg-white rounded font-semibold"
+              >
+                Live Site
+              </a>
             </div>
           </div>
         </div>
-      </section>
-    </div>
-    <!-- Contact info/form -->
-    <section class="pb-10 relative bg-sky-200">
-      <div class="custom-shape-divider-top-1665036720">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
-            class="shape-fill"
-          ></path>
-        </svg>
       </div>
-      <div class="pt-48 container">
+    </section>
+
+    <!-- Contact info/form -->
+    <section class="contact relative">
+      <div class="container">
+        <h1
+          class="text-center font-display text-4xl font-semibold mt-36 mb-6 capitalize"
+        >
+          Contact Me
+        </h1>
+
+        <p class="text-center text-xl leading-relaxed mb-16">
+          Thanks for taking the time to reach out. How can I help you today?
+        </p>
         <div
           id="contact"
-          class="max-w-2xl mx-auto bg-white shadow-2xl rounded-2xl p-4"
+          class="max-w-2xl mx-auto border bg-white shadow-2xl rounded-2xl p-16"
         >
-          <h1 class="title">Contact Me</h1>
           <form
             @submit.prevent="sendMessage"
             name="contact"
@@ -208,48 +244,47 @@ function clearForm() {
             data-netlify="true"
             class="flex flex-col gap-3"
           >
-            <div class="flex flex-col gap-1">
-              <label for="name">Name</label>
-              <input
-                class="input"
-                name="name"
-                id="name"
-                v-model="formData.name"
-                type="text"
-                placeholder="Name"
-                required
-              />
-            </div>
-            <div class="flex flex-col gap-1">
-              <label for="surname">Surname</label>
-              <input
-                class="input"
-                name="surname"
-                id="surname"
-                v-model="formData.surname"
-                type="text"
-                placeholder="Surname"
-                required
-              />
+            <div class="grid grid-cols-1 sm:(grid-cols-2) gap-4">
+              <div class="flex flex-col gap-1">
+                <label for="name">Name</label>
+                <input
+                  class="input focus:(outline border-purple outline-solid-purple )"
+                  name="name"
+                  id="name"
+                  v-model="formData.name"
+                  type="text"
+                  required
+                />
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="email">Email</label>
+                <input
+                  class="input focus:(outline border-purple outline-solid-purple )"
+                  name="email"
+                  id="email"
+                  v-model="formData.email"
+                  type="email"
+                  required
+                />
+              </div>
             </div>
             <div class="flex flex-col gap-1">
               <label for="message">Message</label>
               <textarea
-                class="input"
+                class="input focus:(outline border-purple outline-solid-purple)"
                 name="message"
                 id="message"
                 v-model="formData.message"
                 type="text"
-                placeholder="Message"
                 rows="10"
                 required
               />
             </div>
             <button
               type="submit"
-              class="bg-orange-500 py-4 text-xl text-white rounded-lg font-bold duration-200 outline outline-orange-500 hover:(bg-orange-500/80 outline-offset-4)"
+              class="bg-transparent border-2 border-purple text-purple py-2 px-20 rounded-full self-center text-lg font-bold duration-200 mt-4 hover:(bg-purple text-white)"
             >
-              Send
+              Submit
             </button>
           </form>
         </div>
@@ -259,122 +294,29 @@ function clearForm() {
 </template>
 
 <style>
+.skills::before {
+  @apply bg-purple;
+  content: "";
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  z-index: -100;
+}
+.contact::after {
+  @apply bg-purple;
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  height: 70%;
+  width: 100%;
+  z-index: -100;
+}
+
 label {
   @apply font-semibold text-sm;
 }
 
 .input {
   @apply px-3 py-2 border rounded;
-}
-
-.technology {
-  @apply font-semibold bg-sky-200 py-1 px-5 rounded-full;
-  /* bg-slate-800 giving error on linting */
-  /* background-color: rgba(30, 41, 59, 1); */
-}
-
-.title {
-  @apply font-semibold mb-10 text-4xl relative inline-block z-10;
-}
-
-.title::after {
-  @apply bg-orange-500 duration-200;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  left: 15px;
-  bottom: 0;
-  z-index: -1;
-  opacity: 60%;
-}
-
-.title:hover::after {
-  animation: left-to-right 0.25s linear;
-}
-
-@keyframes left-to-right {
-  0% {
-    width: 100%;
-  }
-  50% {
-    width: 40%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-.custom-shape-divider-bottom-1665035750 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-bottom-1665035750 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 150px;
-}
-
-.custom-shape-divider-bottom-1665035750 .shape-fill {
-  fill: #f9fafb;
-}
-
-/** For tablet devices **/
-@media (min-width: 768px) and (max-width: 1023px) {
-  .custom-shape-divider-bottom-1665035750 svg {
-    width: calc(144% + 1.3px);
-    height: 150px;
-  }
-}
-
-/** For mobile devices **/
-@media (max-width: 767px) {
-  .custom-shape-divider-bottom-1665035750 svg {
-    width: calc(219% + 1.3px);
-    height: 150px;
-  }
-}
-
-.custom-shape-divider-top-1665036720 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-top-1665036720 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 150px;
-  transform: rotateY(180deg);
-}
-
-.custom-shape-divider-top-1665036720 .shape-fill {
-  fill: #f9fafb;
-}
-
-/** For tablet devices **/
-@media (min-width: 768px) and (max-width: 1023px) {
-  .custom-shape-divider-top-1665036720 svg {
-    width: calc(144% + 1.3px);
-    height: 150px;
-  }
-}
-
-/** For mobile devices **/
-@media (max-width: 767px) {
-  .custom-shape-divider-top-1665036720 svg {
-    width: calc(219% + 1.3px);
-    height: 150px;
-  }
 }
 </style>
