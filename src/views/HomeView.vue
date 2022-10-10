@@ -10,11 +10,7 @@ import devices from "../assets/images/hero-devices.svg";
 import sortingImg from "../assets/images/projects/datastructures.png";
 
 // Icons
-import TerminalIcon from "vue-material-design-icons/Console.vue";
-import DatabaseIcon from "vue-material-design-icons/Database.vue";
-import GithubIcon from "vue-material-design-icons/Github.vue";
-import LinkedinIcon from "vue-material-design-icons/Linkedin.vue";
-import ResumeIcon from "vue-material-design-icons/FileAccount.vue";
+import { DatabaseIcon, TerminalIcon } from "@vue-hero-icons/outline";
 
 const router = useRouter();
 
@@ -71,6 +67,34 @@ function clearForm() {
         I love exploring and creating 🚀 I'm a lifelong learner 🎓 and might
         have a thing for freshly roasted coffee ☕
       </p>
+      <p
+        class="my-8 flex flex-wrap gap-5 md:(flex-row) items-center justify-center"
+      >
+        <a
+          class="bg-purple border border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
+          target="_blank"
+          href="https://github.com/Francois16"
+        >
+          <i class="fa-brands fa-github fa-lg"></i>
+          Github
+        </a>
+        <a
+          class="bg-purple border border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
+          target="_blank"
+          href="https://www.linkedin.com/in/francoispaulsen/"
+        >
+          <i class="fa-brands fa-linkedin fa-lg"></i>
+          Linkedin</a
+        >
+        <a
+          class="bg-purple border border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
+          target="_blank"
+          href="#"
+        >
+          <i class="fa-solid fa-file-lines fa-lg"></i>
+          Resume</a
+        >
+      </p>
 
       <img :src="avatar" alt="avatar" class="my-16 h-44 w-44" />
 
@@ -83,39 +107,10 @@ function clearForm() {
         <h3 class="text-2xl font-display pb-7 font-semibold lg:(text-3xl)">
           Hi, I'm Francois. Nice to meet you.
         </h3>
-        <p class="leading-relaxed text-lg mb-16 max-w-lg m-auto">
+        <p class="leading-relaxed text-lg max-w-lg m-auto">
           When I started exploring the world of programming, I instantly fell in
           love with it. I have been tinkering with all sorts of technologies but
           found myself gravitating towards Python and Javascript.
-        </p>
-
-        <p
-          class="my-8 flex flex-wrap gap-5 md:(flex-row) items-center justify-center"
-        >
-          <a
-            class="bg-green rounded shadow py-2 px-5 text-navy duration-200 font-semibold hover:(bg-green/90) flex items-center justify-center gap-1"
-            target="_blank"
-            href="https://github.com/Francois16"
-          >
-            <github-icon />
-            Github
-          </a>
-          <a
-            class="bg-green rounded shadow py-2 px-5 text-navy duration-200 font-semibold hover:(bg-green/90) flex items-center justify-center gap-1"
-            target="_blank"
-            href="https://www.linkedin.com/in/francoispaulsen/"
-          >
-            <linkedin-icon />
-            Linkedin</a
-          >
-          <a
-            class="bg-green rounded shadow py-2 px-5 text-navy duration-200 font-semibold hover:(bg-green/90) flex items-center justify-center gap-1"
-            target="_blank"
-            href="#"
-          >
-            <resume-icon />
-            Resume</a
-          >
         </p>
       </div>
     </section>
@@ -126,9 +121,9 @@ function clearForm() {
           class="flex flex-col items-center bg-white border rounded-2xl shadow p-12"
         >
           <div
-            class="bg-green p-4 rounded-full flex items-center justify-center"
+            class="bg-green w-20 h-20 rounded-full flex items-center justify-center"
           >
-            <terminal-icon />
+            <i class="fa-solid fa-terminal fa-lg"></i>
           </div>
 
           <h1 class="text-2xl font-display my-6 font-semibold">Frontend</h1>
@@ -151,9 +146,9 @@ function clearForm() {
           class="flex flex-col items-center bg-white border rounded-2xl shadow p-12"
         >
           <div
-            class="bg-green p-4 rounded-full flex items-center justify-center"
+            class="bg-green w-20 h-20 rounded-full flex items-center justify-center"
           >
-            <database-icon />
+            <i class="fa-solid fa-server fa-xl"></i>
           </div>
 
           <h1 class="text-2xl font-display my-6 font-semibold">Backend</h1>
@@ -235,7 +230,7 @@ function clearForm() {
         </p>
         <div
           id="contact"
-          class="max-w-2xl mx-auto border bg-white shadow-2xl rounded-2xl p-16"
+          class="max-w-2xl mx-auto border bg-white shadow-2xl rounded-2xl p-4 sm:(p-8) md:(p-16)"
         >
           <form
             @submit.prevent="sendMessage"
