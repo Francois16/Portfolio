@@ -9,9 +9,6 @@ import avatar from "../assets/images/fp-avatar.svg";
 import devices from "../assets/images/hero-devices.svg";
 import sortingImg from "../assets/images/projects/datastructures.png";
 
-// Icons
-import { DatabaseIcon, TerminalIcon } from "@vue-hero-icons/outline";
-
 const router = useRouter();
 
 const formData = ref({
