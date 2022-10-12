@@ -195,12 +195,17 @@ function clearForm() {
           <div
             class="p-12 pb-4 absolute h-full w-full bg-green/80 -bottom-full left-0 group-hover:(bottom-0) duration-500 bg-gradient-to-b from-transparent to-navy flex flex-col items-center justify-end"
           >
-            <h2 class="font-display text-white text-4xl mb-3">Sorter</h2>
-            <p class="mb-4 text-white text-center">
-              Visualization of popular sorting algorithms.
+            <h2 class="font-display text-white text-4xl mb-3 text-navy">
+              Sorting Visualizer
+            </h2>
+            <p class="mb-4 text-white text-center font-semibold">
+              Built vanilla Javascript application for visualizing sorting
+              algorithms.
               <br />
             </p>
-            <p class="text-white mb-6">HTML5 - CSS3 - Javascript</p>
+            <p class="text-white mb-6 font-semibold">
+              HTML5 - CSS3 - Javascript
+            </p>
             <div class="flex flex-row gap-6 items-center justify-center">
               <a
                 target="_blank"
