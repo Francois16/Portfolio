@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import SuccessView from "../views/SuccessView.vue";
+import ContactMessageView from "../views/ContactMessageView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,7 +13,14 @@ const router = createRouter({
     {
       path: "/success",
       name: "success",
-      component: SuccessView,
+      component: ContactMessageView,
+      props: { type: "success" },
+    },
+    {
+      path: "/unsuccessful",
+      name: "unsuccessful",
+      component: ContactMessageView,
+      props: { type: "error" },
     },
   ],
 });

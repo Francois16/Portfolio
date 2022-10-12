@@ -4,10 +4,15 @@ import { useRouter } from "vue-router";
 
 import Navbar from "../components/Navbar.vue";
 
+// Resume
+import resume from "../assets/files/resume.pdf";
+
 // Images
 import avatar from "../assets/images/fp-avatar.svg";
 import devices from "../assets/images/hero-devices.svg";
-import sortingImg from "../assets/images/projects/datastructures.png";
+
+// Project images
+import dataStructures from "../assets/images/projects/datastructures.png";
 
 const router = useRouter();
 
@@ -36,7 +41,10 @@ function sendMessage() {
       router.push("/success");
       clearForm();
     })
-    .catch((err) => console.log("ERROR", err));
+    .catch((err) => {
+      router.push("/unsuccessful");
+      clearForm();
+    });
 }
 
 // Clear the form on successful message sent
@@ -68,7 +76,7 @@ function clearForm() {
         class="my-8 flex flex-wrap gap-5 md:(flex-row) items-center justify-center"
       >
         <a
-          class="bg-purple border border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
+          class="bg-purple border-2 border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
           target="_blank"
           href="https://github.com/Francois16"
         >
@@ -76,7 +84,7 @@ function clearForm() {
           Github
         </a>
         <a
-          class="bg-purple border border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
+          class="bg-purple border-2 border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
           target="_blank"
           href="https://www.linkedin.com/in/francoispaulsen/"
         >
@@ -84,9 +92,9 @@ function clearForm() {
           Linkedin</a
         >
         <a
-          class="bg-purple border border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
+          class="bg-purple border-2 border-transparent rounded shadow py-2 px-5 text-white duration-200 font-semibold flex items-center justify-center gap-3 hover:(bg-white text-purple border-purple)"
           target="_blank"
-          href="#"
+          :href="resume"
         >
           <i class="fa-solid fa-file-lines fa-lg"></i>
           Resume</a
@@ -105,9 +113,10 @@ function clearForm() {
           Hi, I'm Francois. Nice to meet you.
         </h3>
         <p class="leading-relaxed text-lg max-w-lg m-auto">
-          When I started exploring the world of programming, I instantly fell in
-          love with it. I have been tinkering with all sorts of technologies but
-          found myself gravitating towards Python and Javascript.
+          When I started exploring the world of software development, I
+          instantly fell in love with it. I'm quietly confident, naturally
+          curious, and perpetually working on improving my chops one software
+          problem at a time.
         </p>
       </div>
     </section>
@@ -181,7 +190,7 @@ function clearForm() {
         class="container my-20 gap-6 grid grid-cols-1 md:(grid-cols-2) max-w-5xl"
       >
         <div class="overflow-hidden bg-white shadow rounded-2xl relative group">
-          <img class="" :src="sortingImg" />
+          <img class="object-cover h-full" :src="dataStructures" />
 
           <div
             class="p-12 pb-4 absolute h-full w-full bg-green/80 -bottom-full left-0 group-hover:(bottom-0) duration-500 bg-gradient-to-b from-transparent to-navy flex flex-col items-center justify-end"

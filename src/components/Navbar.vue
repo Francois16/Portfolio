@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
 
+import resume from "../assets/files/resume.pdf";
+
 import logo from "../assets/images/logo.png";
 
 const navIsOpen = ref(false);
@@ -28,7 +30,7 @@ function closeNav() {
       <div class="hidden sm:(flex) gap-1 items-center font-semibold text-base">
         <a
           target="_blank"
-          href="#"
+          :href="resume"
           class="py-2 px-4 duration-200 hover:(text-purple)"
           >Resume</a
         >
